@@ -74,18 +74,19 @@ These are set automatically by `cargo oxide`. For manual invocations, all three 
 
 ### Environment Variables
 
-| Variable                      | Effect                                          |
-|-------------------------------|------------------------------------------------ |
-| `CUDA_OXIDE_VERBOSE`          | Verbose compilation output                      |
-| `CUDA_OXIDE_PTX_DIR`          | Output directory for PTX files                  |
-| `CUDA_OXIDE_TARGET`           | GPU architecture (e.g. `sm_90a`). Set by `--arch`.|
-| `CUDA_OXIDE_ARCH`             | Legacy alias for `CUDA_OXIDE_TARGET`.           |
-| `CUDA_OXIDE_LLC`              | Path to a specific `llc` binary                 |
-| `CUDA_OXIDE_DUMP_MIR`         | Dump the `dialect-mir` module                   |
-| `CUDA_OXIDE_DUMP_LLVM`        | Dump the `dialect-llvm` module                  |
-| `CUDA_OXIDE_SHOW_RUSTC_MIR`   | Dump raw rustc MIR                              |
-| `CUDA_OXIDE_EMIT_LTOIR`       | Emit LTOIR container                            |
-| `CUDA_OXIDE_EMIT_NVVM_IR`     | Emit NVVM IR for libNVVM                        |
+| Variable                    | Effect                         |
+|-----------------------------|--------------------------------|
+| `CUDA_OXIDE_VERBOSE`        | Verbose compilation output     |
+| `CUDA_OXIDE_PTX_DIR`        | Output directory for PTX files |
+| `CUDA_OXIDE_TARGET`         | GPU architecture override      |
+| `CUDA_OXIDE_LLC`            | Path to a specific `llc`       |
+| `CUDA_OXIDE_DUMP_MIR`       | Dump the `dialect-mir` module  |
+| `CUDA_OXIDE_DUMP_LLVM`      | Dump the `dialect-llvm` module |
+| `CUDA_OXIDE_SHOW_RUSTC_MIR` | Dump raw rustc MIR             |
+| `CUDA_OXIDE_EMIT_NVVM_IR`   | Emit NVVM IR for libNVVM       |
+
+`cargo oxide --arch <sm_XX>` sets `CUDA_OXIDE_TARGET`. When it is unset,
+PTX output auto-detects the required target from generated LLVM IR.
 
 ## Source Layout
 
