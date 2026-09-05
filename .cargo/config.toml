@@ -11,3 +11,7 @@ oxide = "run --package cargo-oxide --"
 # or override at build time with `LIBMATHDX_PATH=/your/path cargo build`.
 # See: crates/rustc-codegen-cuda/examples/mathdx_ffi_test/README.md
 LIBMATHDX_PATH = "/path/to/libmathdx/install"
+
+# managed-by: awdemos-cargo-target-provision (appended [build] target-dir only)
+[build]
+target-dir = "/.cargo-targets/targets/cuda-oxide/main/target"
